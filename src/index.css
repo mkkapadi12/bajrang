@@ -15,3 +15,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+html {
+  scroll-behavior: smooth;
+  /* 1rem = 10px */
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
