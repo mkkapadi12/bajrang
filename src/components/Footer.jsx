@@ -49,11 +49,13 @@ const Footer = () => {
         </div>
         <div className="container flex flex-col justify-between p-4 sm:flex-row md:items-center">
           <div className="flex flex-col items-center my-3 sm:flex-row md:m-0">
-            <div className="">
-              <img src={logo} alt="logo" className="w-[150px]" />
+            <div>
+              <Link to="/">
+                <img src={logo} alt="logo" className="w-[150px]" />
+              </Link>
             </div>
-            <div className="ml-4 text-text">
-              &copy; {new Date().getFullYear()} All right reserved.
+            <div className="flex items-center justify-center gap-1 md:ml-4 text-text">
+              <span className="text-xl font-bold  text-text">&copy;</span> {new Date().getFullYear()} All right reserved.
             </div>
           </div>
 
