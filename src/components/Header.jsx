@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -7,7 +7,6 @@ import {
 } from "@heroicons/react/24/outline";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const navigation = [
   { name: "HOME", path: "/", current: false },
@@ -21,7 +20,13 @@ function classNames(...classes) {
 }
 
 const Head = () => {
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  const isLogged = localStorage.getItem("logged");
+
+  // useEffect(() => {
+  const logout = () => {
+    localStorage.removeItem("logged");
+  };
+  // });
 
   return (
     <Disclosure as="nav" className="bg-bg">
@@ -150,16 +155,10 @@ const Head = () => {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) =>
-                          isAuthenticated ? (
+                          isLogged ? (
                             <Link
                               to="/"
-                              onClick={() =>
-                                logout({
-                                  logoutParams: {
-                                    returnTo: window.location.origin,
-                                  },
-                                })
-                              }
+                              onClick={logout}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700",
@@ -170,7 +169,7 @@ const Head = () => {
                           ) : (
                             <Link
                               to="/login"
-                              onClick={() => loginWithRedirect()}
+                              // onClick={() => loginWithRedirect()}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700",
@@ -191,22 +190,20 @@ const Head = () => {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                <>
-                  <Disclosure.Button
-                    key={item.name}
-                    as={Link}
-                    to={item.path}
-                    className={classNames(
-                      item.current
-                        ? "bg-gray-900 text-white"
-                        : "text-text hover:bg-btn hover:text-white",
-                      "block rounded-md px-3 py-2 text-base font-medium",
-                    )}
-                    aria-current={item.current ? "page" : undefined}
-                  >
-                    {item.name}
-                  </Disclosure.Button>
-                </>
+                <Disclosure.Button
+                  key={item.name}
+                  as={Link}
+                  to={item.path}
+                  className={classNames(
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-text hover:bg-btn hover:text-white",
+                    "block rounded-md px-3 py-2 text-base font-medium",
+                  )}
+                  aria-current={item.current ? "page" : undefined}
+                >
+                  {item.name}
+                </Disclosure.Button>
               ))}
             </div>
           </Disclosure.Panel>

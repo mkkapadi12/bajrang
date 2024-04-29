@@ -1,5 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 //rrd
 import { BrowserRouter as Main, Route, Routes } from "react-router-dom";
 //Pages
@@ -7,13 +9,13 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
-import Footer from "./components/Footer";
 //Component
-// import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Head from "./components/Header";
 import Cart from "./pages/Cart";
 import Error from "./pages/Error";
 import Login from "./Auth/Login";
+import Register from "./Auth/Register";
 
 const App = () => {
   const theme = {
@@ -42,11 +44,13 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
+        <ToastContainer />
         <Main>
           <Head />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login />} />
+            <Route exact path="/register" element={<Register />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/shop" element={<Shop />} />
             <Route exact path="/contact" element={<Contact />} />

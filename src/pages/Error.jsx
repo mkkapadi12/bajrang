@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import error from "../assets/404.gif";
+import error from "../assets/Auth/404.gif";
 
 const Error = () => {
   return (
