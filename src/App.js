@@ -9,9 +9,11 @@ import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
 import Footer from "./components/Footer";
 //Component
-import Header from "./components/Header";
+// import Header from "./components/Header";
+import Head from "./components/Header";
 import Cart from "./pages/Cart";
 import Error from "./pages/Error";
+import Login from "./Auth/Login";
 
 const App = () => {
   const theme = {
@@ -41,9 +43,10 @@ const App = () => {
     <>
       <ThemeProvider theme={theme}>
         <Main>
-          <Header />
+          <Head />
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/login" element={<Login />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/shop" element={<Shop />} />
             <Route exact path="/contact" element={<Contact />} />

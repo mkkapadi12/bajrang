@@ -12,10 +12,18 @@ const Footer = () => {
           <div className="my-2">
             <h2 className="mb-3 font-bold text-text">NEED HELP</h2>
             <div className="flex flex-col">
-              <Link>Contact us</Link>
-              <Link>Return Policy</Link>
-              <Link>FAQs</Link>
-              <Link>Account</Link>
+              <div>
+                <Link to="/contact">Contact us</Link>
+              </div>
+              <div>
+                <Link>Return Policy</Link>
+              </div>
+              <div>
+                <Link>FAQs</Link>
+              </div>
+              <div>
+                <Link>Account</Link>
+              </div>
             </div>
           </div>
           <div className="my-2">
@@ -35,27 +43,31 @@ const Footer = () => {
           </div>
           <div className="my-2">
             <h2 className="mb-3 font-bold text-text">SUBSCRIBE</h2>
-            <div className="flex flex-col">
+            <form className="flex flex-col">
               <input
                 type="email"
-                className="p-2 text-black border-none rounded ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
+                className="rounded border-none p-2 text-black ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
                 placeholder="user@xyz.com"
+                required
               />
               <div>
-                <Button>SUBSCRIBE</Button>
+                <Button>
+                  <input type="submit" value="SUBSCRIBE" />
+                </Button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
         <div className="container flex flex-col justify-between p-4 sm:flex-row md:items-center">
-          <div className="flex flex-col items-center my-3 sm:flex-row md:m-0">
+          <div className="my-3 flex flex-col items-center sm:flex-row md:m-0">
             <div>
               <Link to="/">
                 <img src={logo} alt="logo" className="w-[150px]" />
               </Link>
             </div>
-            <div className="flex items-center justify-center gap-1 md:ml-4 text-text">
-              <span className="text-xl font-bold  text-text">&copy;</span> {new Date().getFullYear()} All right reserved.
+            <div className="flex items-center justify-center gap-1 text-text md:ml-4">
+              <span className="text-xl font-bold text-text">&copy;</span>{" "}
+              {new Date().getFullYear()} All right reserved.
             </div>
           </div>
 

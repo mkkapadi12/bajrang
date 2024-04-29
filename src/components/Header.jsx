@@ -1,99 +1,219 @@
-import React, { useState } from "react";
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import {
+  Bars3Icon,
+  XMarkIcon,
+  ShoppingCartIcon,
+} from "@heroicons/react/24/outline";
 import logo from "../assets/logo.png";
-import MenuIcon from "@mui/icons-material/Menu";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import CloseIcon from "@mui/icons-material/Close";
-// import SearchIcon from "@mui/icons-material/Search";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const navigation = [
+  { name: "HOME", path: "/", current: false },
+  { name: "ABOUT", path: "about", current: false },
+  { name: "SHOP", path: "shop", current: false },
+  { name: "CONTACT", path: "contact", current: false },
+];
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
-  const navItems = [
-    { title: "HOME", path: "/" },
-    { title: "ABOUT", path: "/about" },
-    { title: "SHOP", path: "/shop" },
-    { title: "CONTACT", path: "/contact" },
-  ];
+const Head = () => {
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   return (
-    <header className="px-4 bg-bg xl:px-28">
-      <nav className="container flex items-center justify-between pt-4 pb-3 md:py-2">
-        {/* Logo */}
-        <div className="w-2/6 h-12 md:h-16 md:w-44">
-          <Link to="/">
-            <img src={logo} alt="logo" className="w-full h-full" />
-          </Link>
-        </div>
+    <Disclosure as="nav" className="bg-bg">
+      {({ open }) => (
+        <>
+          <div className="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div className="relative flex items-center justify-between h-16">
+              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                {/* Mobile menu button*/}
+                <Disclosure.Button className="relative inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <span className="absolute -inset-0.5" />
+                  <span className="sr-only">Open main menu</span>
+                  {open ? (
+                    <XMarkIcon className="block w-6 h-6" aria-hidden="true" />
+                  ) : (
+                    <Bars3Icon className="block w-6 h-6" aria-hidden="true" />
+                  )}
+                </Disclosure.Button>
+              </div>
+              <div className="flex items-center justify-center flex-1 sm:items-center sm:justify-start">
+                <div className="flex items-center flex-shrink-0">
+                  <Link to="/">
+                    <img
+                      className="w-auto h-12"
+                      src={logo}
+                      alt="Your Company"
+                    />
+                  </Link>
+                </div>
+                <div className="hidden sm:ml-6 sm:block">
+                  <div className="flex space-x-4">
+                    {navigation.map((item) => (
+                      <Link
+                        key={item.name}
+                        to={item.path}
+                        className={classNames(
+                          item.current
+                            ? "bg-gray-900 text-white"
+                            : "text-text hover:text-btn",
+                          "rounded-md px-3 py-2 text-sm font-medium",
+                        )}
+                        aria-current={item.current ? "page" : undefined}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <Link to="/cart">
+                  <button
+                    type="button"
+                    className="relative hidden rounded-full p-[5px] hover:bg-white focus:outline-none sm:block"
+                  >
+                    <span className="absolute -inset-1.5" />
+                    <span className="sr-only">View notifications</span>
+                    <ShoppingCartIcon
+                      className="w-6 h-6 text-text"
+                      aria-hidden="true"
+                    />
+                  </button>
+                </Link>
 
-        {/* Navbar */}
-        <div className="w-1/2">
-          <ul className="items-center justify-around hidden text-black lg:flex">
-            {navItems.map(({ title, path }) => (
-              <li key={title} className="hover:text-purple-700">
-                <NavLink to={path} className="text-base">
-                  {title}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </div>
+                {/* Profile dropdown */}
+                <Menu as="div" className="relative ml-3">
+                  <div>
+                    <Menu.Button className="relative flex text-sm bg-gray-800 rounded-full focus:outline-none">
+                      <span className="absolute -inset-1.5" />
+                      <span className="sr-only">Open user menu</span>
+                      <img
+                        className="w-8 h-8 rounded-full"
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt=""
+                      />
+                    </Menu.Button>
+                  </div>
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            to="/profile"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700",
+                            )}
+                          >
+                            Your Profile
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item className="block sm:hidden">
+                        {({ active }) => (
+                          <Link
+                            to="/cart"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700",
+                            )}
+                          >
+                            Your Cart
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            to="/"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700",
+                            )}
+                          >
+                            Settings
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) =>
+                          isAuthenticated ? (
+                            <Link
+                              to="/"
+                              onClick={() =>
+                                logout({
+                                  logoutParams: {
+                                    returnTo: window.location.origin,
+                                  },
+                                })
+                              }
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700",
+                              )}
+                            >
+                              Log out
+                            </Link>
+                          ) : (
+                            <Link
+                              to="/login"
+                              onClick={() => loginWithRedirect()}
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700",
+                              )}
+                            >
+                              Log in
+                            </Link>
+                          )
+                        }
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+              </div>
+            </div>
+          </div>
 
-        {/* account and shopping btn */}
-        <div className="items-center hidden gap-4 text-lg text-Black sm:flex">
-          <Link
-            to="/cart"
-            className="container flex items-center gap-2 p-1 text-white rounded bg-btn"
-          >
-            <ShoppingCartIcon />
-            Cart
-          </Link>
-          <Link
-            href="/profile"
-            className="flex items-center gap-2 p-1 text-white rounded bg-btn"
-          >
-            <AccountCircleIcon />
-            Account
-          </Link>
-        </div>
-
-        {/* toggle Menu */}
-        <div className="sm:hidden">
-          <button onClick={toggleMenu}>
-            {isMenuOpen ? (
-              <CloseIcon className="w-6 h-6 text-black" />
-            ) : (
-              <MenuIcon className="w-6 h-6 text-black" />
-            )}
-          </button>
-        </div>
-      </nav>
-      <hr />
-
-      {/* mobile menu items */}
-      <div className="w-full z-99">
-        <ul
-          className={`absolute z-99 flex h-4/5 w-11/12 flex-col items-center justify-center rounded bg-black px-4 py-2 text-center  text-white ${isMenuOpen ? "" : "hidden"}`}
-        >
-          {navItems.map(({ title, path }) => (
-            <li
-              key={title}
-              className="my-3 cursor-pointer hover:text-orange-500"
-            >
-              <Link to={path} onClick={toggleMenu}>
-                {title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </header>
+          <Disclosure.Panel className="sm:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navigation.map((item) => (
+                <>
+                  <Disclosure.Button
+                    key={item.name}
+                    as={Link}
+                    to={item.path}
+                    className={classNames(
+                      item.current
+                        ? "bg-gray-900 text-white"
+                        : "text-text hover:bg-btn hover:text-white",
+                      "block rounded-md px-3 py-2 text-base font-medium",
+                    )}
+                    aria-current={item.current ? "page" : undefined}
+                  >
+                    {item.name}
+                  </Disclosure.Button>
+                </>
+              ))}
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
   );
 };
 
-export default Header;
+export default Head;
