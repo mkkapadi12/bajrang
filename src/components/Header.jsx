@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useContext } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
 
 const navigation = [
   { name: "HOME", path: "/", current: false },
@@ -20,13 +21,8 @@ function classNames(...classes) {
 }
 
 const Head = () => {
-  const isLogged = localStorage.getItem("logged");
-
-  // useEffect(() => {
-  const logout = () => {
-    localStorage.removeItem("logged");
-  };
-  // });
+  const { user } = useContext(AuthContext);
+  // console.log(user.email);
 
   return (
     <Disclosure as="nav" className="bg-bg">
@@ -154,31 +150,31 @@ const Head = () => {
                         )}
                       </Menu.Item>
                       <Menu.Item>
-                        {({ active }) =>
-                          isLogged ? (
-                            <Link
-                              to="/"
-                              onClick={logout}
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700",
-                              )}
-                            >
-                              Log out
-                            </Link>
-                          ) : (
-                            <Link
-                              to="/login"
-                              // onClick={() => loginWithRedirect()}
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700",
-                              )}
-                            >
-                              Log in
-                            </Link>
-                          )
-                        }
+                        {({ active }) => (
+                          <Link
+                            to="/login"
+                            // onClick={logout}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700",
+                            )}
+                          >
+                            Log out
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            to="/login"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700",
+                            )}
+                          >
+                            Log in
+                          </Link>
+                        )}
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>

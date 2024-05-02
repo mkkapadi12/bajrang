@@ -16,6 +16,7 @@ import Cart from "./pages/Cart";
 import Error from "./pages/Error";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
+import PrivateRoute from "./Private/PrivateRoute";
 
 const App = () => {
   const theme = {
@@ -54,7 +55,15 @@ const App = () => {
             <Route exact path="/about" element={<About />} />
             <Route exact path="/shop" element={<Shop />} />
             <Route exact path="/contact" element={<Contact />} />
-            <Route exact path="/cart" element={<Cart />} />
+            <Route
+              exact
+              path="/cart"
+              element={
+                <PrivateRoute>
+                  <Cart />
+                </PrivateRoute>
+              }
+            />
             <Route exact path="*" element={<Error />} />
           </Routes>
           <Footer />

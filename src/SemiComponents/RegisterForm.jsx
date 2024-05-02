@@ -1,29 +1,41 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Button from "../Styles/Button";
 import welcome from "../assets/Auth/welcome.jpg";
-import { useState } from "react";
+import { AuthContext } from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
-const Form = () => {
-  const [input, setInput] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-
+const RegisterForm = () => {
+  const [errorMsg, setErrorMsg] = useState("");
+  const { createUser } = useContext(AuthContext);
+  const location = useLocation();
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setInput({
-      ...input,
-      [e.target.name]: [e.target.value],
-    });
-  };
+  const from = location.state?.from?.pathname || "/login";
 
-  const handleSubmit = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
-    localStorage.setItem("user", JSON.stringify(input));
-    navigate("/login");
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirmPassword = form.confirmpassword.value;
+
+    if (password !== confirmPassword) {
+      setErrorMsg("Password doesn't match");
+    } else {
+      setErrorMsg("");
+      // Signed up
+      createUser(email, password)
+        .then((result) => {
+          const user = result.user;
+          toast.success("Register Successfully");
+          navigate(from, { replace: true });
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          toast.error(errorMessage);
+        });
+    }
   };
   return (
     <>
@@ -32,15 +44,13 @@ const Form = () => {
           <img src={welcome} alt="welcome" className="w-[300px]" />
         </div>
         <div className="p-6">
-          <form onSubmit={handleSubmit} className="flex flex-col">
+          <form onSubmit={handleSignUp} className="flex flex-col">
             <label htmlFor="name" className="py-2 text-text">
               Name
             </label>
             <input
               type="text"
               name="name"
-              value={input.name}
-              onChange={(e) => handleChange(e)}
               id="name"
               required
               placeholder="John Doe"
@@ -52,8 +62,6 @@ const Form = () => {
             <input
               type="email"
               name="email"
-              value={input.email}
-              onChange={(e) => handleChange(e)}
               id="email"
               required
               placeholder="user@xyz.com"
@@ -65,8 +73,6 @@ const Form = () => {
             <input
               type="password"
               name="password"
-              value={input.password}
-              onChange={(e) => handleChange(e)}
               id="password"
               placeholder="●●●●●●●●●●"
               required
@@ -77,12 +83,17 @@ const Form = () => {
             </label>
             <input
               type="password"
-              name="password"
-              id="password"
+              name="confirmpassword"
+              id="confirmpassword"
               placeholder="●●●●●●●●●●"
               required
               className="w-full p-2 text-black border-none rounded ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
             />
+            {errorMsg && (
+              <div className="mt-2 text-center">
+                <p className="text-red-500">{errorMsg}</p>
+              </div>
+            )}
             <div className="mt-3 text-end">
               <Link to="/" className="hover:text-btn">
                 Forget Password?
@@ -107,4 +118,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default RegisterForm;
