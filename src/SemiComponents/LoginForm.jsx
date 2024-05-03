@@ -1,11 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Button from "../Styles/Button";
-import welcome from "../assets/Auth/welcome.jpg";
-import { AuthContext } from "../Context/AuthContext";
-// import { toast } from "react-toastify";
 import { Facebook, GitHub, Google, Instagram } from "@mui/icons-material";
+import { AuthContext } from "../Context/AuthContext";
+import welcome from "../assets/Auth/welcome.jpg";
 import { toast } from "react-toastify";
+import Button from "../Styles/Button";
 
 const LoginForm = () => {
   const [errorMsg, setErrorMsg] = useState("");
@@ -30,7 +29,6 @@ const LoginForm = () => {
         const errorMessage = error.message;
         toast.error("invalid email and password !", {
           position: "top-left",
-          // theme: "dark",
         });
         // setErrorMsg("Please provide valid Email and Password");
       });
@@ -42,6 +40,7 @@ const LoginForm = () => {
         const user = result.user;
         toast.success("Login Successfully");
         navigate(from, { replace: true });
+        console.log(user);
       })
       .catch((error) => {
         const errorMessage = error.message;

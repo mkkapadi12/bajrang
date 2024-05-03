@@ -11,12 +11,12 @@ import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
 //Component
 import Footer from "./components/Footer";
-import Head from "./components/Header";
 import Cart from "./pages/Cart";
 import Error from "./pages/Error";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
 import PrivateRoute from "./Private/PrivateRoute";
+import Header from "./components/Header";
 
 const App = () => {
   const theme = {
@@ -47,7 +47,7 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <ToastContainer />
         <Main>
-          <Head />
+          <Header />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login />} />
