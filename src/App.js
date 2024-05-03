@@ -17,6 +17,7 @@ import Login from "./Auth/Login";
 import Register from "./Auth/Register";
 import PrivateRoute from "./Private/PrivateRoute";
 import Header from "./components/Header";
+import Reset from "./Auth/Reset";
 
 const App = () => {
   const theme = {
@@ -51,6 +52,7 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login />} />
+            <Route exact path="/resetpassword" element={<Reset />} />
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/shop" element={<Shop />} />

@@ -13,7 +13,6 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
-  // console.log(from);
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -40,7 +39,6 @@ const LoginForm = () => {
         const user = result.user;
         toast.success("Login Successfully");
         navigate(from, { replace: true });
-        console.log(user);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -84,7 +82,7 @@ const LoginForm = () => {
               </div>
             )}
             <div className="mt-3 text-end">
-              <Link to="/" className="hover:text-btn">
+              <Link to="/resetpassword" className="hover:text-btn">
                 Forget Password?
               </Link>
             </div>

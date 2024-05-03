@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -42,6 +43,11 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  //Reset password
+  const reset = (email) => {
+   return sendPasswordResetEmail(auth,email);
+  };
+
   //user is avalaible or not
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -60,6 +66,7 @@ const AuthProvider = ({ children }) => {
     signUpWithGmail,
     login,
     logout,
+    reset,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
