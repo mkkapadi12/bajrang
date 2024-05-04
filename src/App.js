@@ -18,6 +18,7 @@ import Register from "./Auth/Register";
 import PrivateRoute from "./Private/PrivateRoute";
 import Header from "./components/Header";
 import Reset from "./Auth/Reset";
+import { GlobalStyle } from "./GlobalStyles";
 
 const App = () => {
   const theme = {
@@ -28,6 +29,7 @@ const App = () => {
       black: "#212529",
       helper: "#8490ff",
       bg: "#F6F8FA",
+      card_bg : "#b0a69d",
       footer_bg: "#0a1435",
       btn: "rgb(98,84,243)",
       hr: "#fffff",
@@ -48,6 +50,7 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <ToastContainer />
         <Main>
+          <GlobalStyle />
           <Header />
           <Routes>
             <Route exact path="/" element={<Home />} />

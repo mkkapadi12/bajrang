@@ -42,7 +42,7 @@ const LoginForm = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        setErrorMsg("Please provide valid Email ans Password");
+        setErrorMsg("Please provide valid Email and Password");
       });
   };
 
@@ -63,7 +63,7 @@ const LoginForm = () => {
               id="email"
               required
               placeholder="user@xyz.com"
-              className="w-full rounded border-none p-2 text-black ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
+              className="w-full p-2 text-black border-none rounded ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
             />
             <label htmlFor="password" className="py-2 text-text">
               Password
@@ -74,7 +74,7 @@ const LoginForm = () => {
               id="password"
               placeholder="●●●●●●●●●●"
               required
-              className="w-full rounded border-none p-2 text-black ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
+              className="w-full p-2 text-black border-none rounded ring-1 ring-btn ring-offset-2 placeholder:text-text focus:outline-none focus:ring"
             />
             {errorMsg && (
               <div className="mt-2 text-center">
@@ -99,7 +99,7 @@ const LoginForm = () => {
               </Link>
             </p>
             <div className="flex items-center justify-center">
-              <span className="rounded-full p-1 text-sm font-bold text-text">
+              <span className="p-1 text-sm font-bold rounded-full text-text">
                 OR
               </span>
             </div>
@@ -107,25 +107,25 @@ const LoginForm = () => {
               <h2>Login with Social Media</h2>
               <div className="flex items-center justify-center p-2">
                 <Link
-                  className="mx-1 rounded-full bg-btn p-2 text-white duration-100 hover:scale-75 hover:bg-blue-gray-400"
+                  className="p-2 mx-1 text-white duration-100 rounded-full bg-btn hover:scale-75 hover:bg-blue-gray-400"
                   onClick={handleRegister}
                 >
                   <Google />
                 </Link>
                 <Link
-                  className="mx-1 rounded-full bg-btn p-2 text-white duration-100 hover:scale-75 hover:bg-blue-gray-400"
+                  className="p-2 mx-1 text-white duration-100 rounded-full bg-btn hover:scale-75 hover:bg-blue-gray-400"
                   onClick={handleRegister}
                 >
                   <Facebook />
                 </Link>
                 <Link
-                  className="mx-1 rounded-full bg-btn p-2 text-white duration-100 hover:scale-75 hover:bg-blue-gray-400"
+                  className="p-2 mx-1 text-white duration-100 rounded-full bg-btn hover:scale-75 hover:bg-blue-gray-400"
                   onClick={handleRegister}
                 >
                   <GitHub />
                 </Link>
                 <Link
-                  className="mx-1 rounded-full bg-btn p-2 text-white duration-100 hover:scale-75 hover:bg-blue-gray-400"
+                  className="p-2 mx-1 text-white duration-100 rounded-full bg-btn hover:scale-75 hover:bg-blue-gray-400"
                   onClick={handleRegister}
                 >
                   <Instagram />
