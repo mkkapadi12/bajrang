@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import CurrencyFormate from "../helper/CurrencyFormate";
 
 const Product = (curElem) => {
-  const { name, id, image, price, category } = curElem;
+  const { name, id, image, price } = curElem;
   return (
     <>
       <NavLink to={`/singleproduct/${id}`}>

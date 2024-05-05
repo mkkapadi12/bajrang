@@ -22,7 +22,7 @@ const initialState = {
 
 const FilterContextProvider = ({ children }) => {
   const { products } = useProductContext();
-//   console.log("products :", products);
+  //   console.log("products :", products);
 
   const [state, dispatch] = useReducer(reducer, initialState);
 

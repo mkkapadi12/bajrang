@@ -5,8 +5,8 @@ import Product from "./Product";
 const GridView = ({ products }) => {
   //   console.log("products :", products);
   return (
-    <Wrapper className="py-8 ">
-      <div className="container grid grid-cols-3 gap-12">
+    <Wrapper className="p-10 sm:py-8">
+      <div className="container grid grid-cols-1 gap-12 sm:grid-cols-3">
         {products.map((curEle) => {
           return <Product key={curEle.id} {...curEle} />;
         })}
@@ -17,7 +17,7 @@ const GridView = ({ products }) => {
 
 const Wrapper = styled.section`
   figure {
-    width: auto;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +42,8 @@ const Wrapper = styled.section`
       transform: scale(1.2);
     }
     img {
-      max-width: 90%;
+      width: 100%;
+      max-width: 75%;
       margin-top: 1.5rem;
       height: 15rem;
       transition: all 0.2s linear;

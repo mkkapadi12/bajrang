@@ -30,5 +30,8 @@ module.exports = withMT({
       },
     },
   },
+  corePlugins: {
+    aspectRatio: false,
+  },
   plugins: [],
 });
