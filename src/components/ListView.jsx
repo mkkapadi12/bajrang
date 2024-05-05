@@ -7,11 +7,11 @@ import Button from "../Styles/Button";
 const ListView = ({ products }) => {
   return (
     <Wrapper className="py-8 ">
-      <div className="container grid gap-12">
+      <div className="container grid gap-12 px-8 sm:p-0">
         {products.map((curElem) => {
           const { id, name, image, price, description } = curElem;
           return (
-            <div className="grid grid-cols-2 card" key={id}>
+            <div className="grid grid-cols-1 card sm:grid-cols-2" key={id}>
               <figure>
                 <img src={image} alt={name} />
               </figure>
