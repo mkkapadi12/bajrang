@@ -45,7 +45,7 @@ const Wrapper = styled.section`
       width: 100%;
       max-width: 75%;
       margin-top: 1.5rem;
-      height: 15rem;
+      height: auto;
       transition: all 0.2s linear;
     }
   }

@@ -49,7 +49,7 @@ const FilterContextProvider = ({ children }) => {
   const updateFilterValue = (event) => {
     let name = event.target.name;
     let value = event.target.value;
-    // console.log(value);
+    // console.log(name + ":" + value);
     return dispatch({ type: "UPDATE_FILTER_VALUE", payload: { name, value } });
   };
 

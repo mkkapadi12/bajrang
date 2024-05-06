@@ -1,12 +1,7 @@
 import React from "react";
-import QuickView from "../components/QuickView";
 
 const Cart = () => {
-  return (
-    <div className="h-[100px] w-full">
-      <QuickView />
-    </div>
-  );
+  return <div>This is a Cart Page</div>;
 };
 
 export default Cart;
