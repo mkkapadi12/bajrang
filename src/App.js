@@ -9,16 +9,19 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Shop from "./pages/Shop";
-//Component
-import Footer from "./components/Footer";
+import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
 import Error from "./pages/Error";
+//Component
+import Footer from "./components/Footer";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
 import PrivateRoute from "./Private/PrivateRoute";
 import Header from "./components/Header";
 import Reset from "./Auth/Reset";
 import { GlobalStyle } from "./GlobalStyles";
+import Profile from "./pages/Profile";
+import Gallery from "./pages/Gallery";
 
 const App = () => {
   const theme = {
@@ -59,7 +62,14 @@ const App = () => {
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/shop" element={<Shop />} />
+            <Route exact path="/gallery" element={<Gallery />} />
+            <Route
+              exact
+              path="/singleproduct/:id"
+              element={<SingleProduct />}
+            />
             <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/profile" element={<Profile />} />
             <Route
               exact
               path="/cart"

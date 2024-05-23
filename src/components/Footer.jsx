@@ -22,23 +22,33 @@ const Footer = () => {
                 <Link>FAQs</Link>
               </div>
               <div>
-                <Link>Account</Link>
+                <Link to="/profile">Account</Link>
               </div>
             </div>
           </div>
           <div className="my-2">
             <h2 className="mb-3 font-bold text-text">COMPANY</h2>
             <div className="flex flex-col">
-              <Link>About us</Link>
-              <Link>Our Team</Link>
-              <Link>Our Location</Link>
+              <div>
+                <Link to="/about">About us</Link>
+              </div>
+              <div>
+                <Link>Our Team</Link>
+              </div>
+              <div>
+                <Link>Our Location</Link>
+              </div>
             </div>
           </div>
           <div className="my-2">
             <h2 className="mb-3 font-bold text-text">MORE INFO</h2>
             <div className="flex flex-col">
-              <Link>Terms and Condition</Link>
-              <Link>Privacy Policy</Link>
+              <div>
+                <Link>Terms and Condition</Link>
+              </div>
+              <div>
+                <Link>Privacy Policy</Link>
+              </div>
             </div>
           </div>
           <div className="my-2">

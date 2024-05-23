@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../Reducer/ProductReducer";
+// import { SinglePro } from "../Data/SinglePro";
 
 const ProductContext = createContext();
-const API = "https://dev-krv9yget2a9na8l.api.raw-labs.com/latkan-products";
+const API = "https://mocki.io/v1/9002e200-0d52-42a3-902a-2164d85fd476";
 
 const initialState = {
   isError: false,
@@ -11,7 +12,7 @@ const initialState = {
   products: [],
   featureProducts: [],
   isSingleLoading: false,
-  singleProduct: {},
+  singleProduct: [],
 };
 
 const ProductProvider = ({ children }) => {
@@ -28,13 +29,24 @@ const ProductProvider = ({ children }) => {
       dispatch({ type: "API_ERROR" });
     }
   };
+  const getSingleProduct = async (url) => {
+    dispatch({ type: "SET_SINGLE_LOADING" });
+    try {
+      // const res = await axios.get(url);
+      // const singleProduct = await res.data;
+      const singleProduct = url;
+      dispatch({ type: "SET_SINGLE_API_DATA", payload: singleProduct });
+    } catch (error) {
+      dispatch({ type: "SET_SINGLE_ERROR" });
+    }
+  };
 
   useEffect(() => {
     getProducts(API);
   }, []);
 
   return (
-    <ProductContext.Provider value={{ ...state }}>
+    <ProductContext.Provider value={{ ...state, getSingleProduct }}>
       {children}
     </ProductContext.Provider>
   );

@@ -1,0 +1,167 @@
+[
+  {
+    "id": "productnoa",
+    "name": "Mota Topa",
+    "price": 360,
+    "colors": ["#000000"],
+    "image": "https://i.ibb.co/0fsPZ5c/Product1.jpg",
+    "description": "The mobile is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": null,
+    "featured": true
+  },
+  {
+    "id": "productnob",
+    "name": "Spring",
+    "price": 85,
+    "colors": ["#A70F2E"],
+    "image": "https://i.ibb.co/R706wb3/Product2.jpg",
+    "description": "The mobile is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  },
+  {
+    "id": "productnoc",
+    "name": "Shivling",
+    "price": 110,
+    "colors": ["#080812"],
+    "image": "https://i.ibb.co/c1SqH1R/Product3.jpg",
+    "description": "The Laptop is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": null,
+    "featured": null
+  },
+  {
+    "id": "productnod",
+    "name": "Fancy",
+    "price": 250,
+    "colors": ["#152131"],
+    "image": "https://i.ibb.co/Vqy0hK8/Product4.jpg",
+    "description": "The mobile is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  },
+  {
+    "id": "productnoe",
+    "name": "Jaripatty",
+    "price": 90,
+    "colors": ["#C16D59"],
+    "image": "https://i.ibb.co/dJGZPpy/Product5.jpg",
+    "description": "The Computer is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  },
+  {
+    "id": "productnof",
+    "name": "Hodi",
+    "price": 70,
+    "colors": ["#5A644D"],
+    "image": "https://i.ibb.co/HKM3VTG/Product6.jpg",
+    "description": "The Laptop is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  },
+  {
+    "id": "productnog",
+    "name": "Jaripatty",
+    "price": 90,
+    "colors": ["#962A37"],
+    "image": "https://i.ibb.co/qCvxtV3/Product7.jpg",
+    "description": "The Laptop is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  },
+  {
+    "id": "productnoh",
+    "name": "Jaripatty",
+    "price": 90,
+    "colors": ["#B4825A"],
+    "image": "https://i.ibb.co/FqdPDGP/Product8.jpg",
+    "description": "The Laptop is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  },
+  {
+    "id": "productnoi",
+    "name": "Jaripatty",
+    "price": 90,
+    "colors": ["#16313D"],
+    "image": "https://i.ibb.co/prBTgJ9/Product9.jpg",
+    "description": "The Laptop is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  },
+  {
+    "id": "productnoj",
+    "name": "Jaripatty",
+    "price": 90,
+    "colors": ["#27283A"],
+    "image": "https://i.ibb.co/gdtMLXy/Product10.jpg",
+    "description": "The Laptop is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  },
+  {
+    "id": "productnok",
+    "name": "Jaripatty",
+    "price": 90,
+    "colors": ["#433739"],
+    "image": "https://i.ibb.co/wYnKDB5/Product11.jpg",
+    "description": "The Laptop is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  },
+  {
+    "id": "productnol",
+    "name": "Jaripatty",
+    "price": 90,
+    "colors": ["#989796"],
+    "image": "https://i.ibb.co/WV10HdP/Product12.jpg",
+    "description": "The Laptop is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  },
+  {
+    "id": "productnom",
+    "name": "Jaripatty",
+    "price": 90,
+    "colors": ["#5A644D"],
+    "image": "https://i.ibb.co/mTxSVPq/Product13.jpg",
+    "description": "The Laptop is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  },
+  {
+    "id": "productnon",
+    "name": "Jaripatty",
+    "price": 90,
+    "colors": ["#BE2E33"],
+    "image": "https://i.ibb.co/d6pZq4C/Product14.jpg",
+    "description": "The Laptop is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  },
+  {
+    "id": "productnoo",
+    "name": "Jaripatty",
+    "price": 90,
+    "colors": ["#111A23"],
+    "image": "https://i.ibb.co/3TYB0nH/Product15.jpg",
+    "description": "The Laptop is compact with its 6.2-inch OLED screen and far lighter at 168g. It perfectly captures the design, looks, and feel of the expensive one. It comes with a snapdragon processor with a 5n chip in it. It has a 200mp camera in the rear 100mp in front perfect for selfie lovers. It also support HDR content means you can watch 4K content on it.",
+    "category": "latkan",
+    "shipping": true,
+    "featured": null
+  }
+]
