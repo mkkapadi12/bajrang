@@ -7,7 +7,7 @@ import MyImage from "../SemiComponents/MyImage";
 import CurrencyFormate from "../helper/CurrencyFormate";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
-// import AddToCart from "../SemiComponents/AddToCart";
+import AddToCart from "../SemiComponents/AddToCart";
 import styled from "styled-components";
 import Progress from "../helper/Progress";
 import { SinglePro } from "../Data/SinglePro";
@@ -33,13 +33,13 @@ const SingleProduct = () => {
       </>
     );
   }
-  console.log(singleProduct);
+  // console.log(singleProduct);
   return (
     <>
       <div>
         <Breadcrumb
           aria-label="Solid background breadcrumb example"
-          className="px-5 py-3 m-5 border bg-bg dark:bg-gray-800"
+          className="m-5 border bg-bg px-5 py-3 dark:bg-gray-800"
         >
           <Breadcrumb.Item icon={HiHome}>
             <Link to="/" className="hover:text-btn">
@@ -55,44 +55,43 @@ const SingleProduct = () => {
         </Breadcrumb>
       </div>
       <Wrapper>
-        <section className="container">
-          <div className="grid grid-cols-2">
-            <div className="product-images">
-              <MyImage imgs={image} />
-            </div>
-            <div className="product-data">
-              <h2 style={{ textTransform: "capitalize" }}>{name}</h2>
+        <div className="grid grid-cols-2">
+          <div className="product-images">
+            <MyImage imgs={image} />
+          </div>
+          <div className="product-data">
+            <h2 style={{ textTransform: "capitalize" }}>{name}</h2>
 
-              {/* <Rating stars={stars} reviews={reviews} /> */}
-              <p className="product-data-price">
-                MRP:
-                <del>
-                  <CurrencyFormate price={price + 250000} />
-                </del>
-              </p>
-              <p className="product-data-price product-data-real-price">
-                Deal of The Day : <CurrencyFormate price={price} />
-              </p>
-              <p>{description}</p>
-              <div className="product-data-warranty">
-                <div className="product-warranty-data">
-                  <TbTruckDelivery className="warranty-icon" />
-                  <p>Free Delivery</p>
-                </div>
-                <div className="product-warranty-data">
-                  <TbReplace className="warranty-icon" />
-                  <p>30 Days Replacement</p>
-                </div>
-                <div className="product-warranty-data">
-                  <TbTruckDelivery className="warranty-icon" />
-                  <p>Mayur Delivery</p>
-                </div>
-                <div className="product-warranty-data">
-                  <MdSecurity className="warranty-icon" />
-                  <p>2 years warranty</p>
-                </div>
+            {/* <Rating stars={stars} reviews={reviews} /> */}
+            <p className="product-data-price">
+              MRP:
+              <del>
+                <CurrencyFormate price={price + 250} />
+              </del>
+            </p>
+            <p className="product-data-price product-data-real-price">
+              Deal of The Day : <CurrencyFormate price={price} />
+            </p>
+            <p>{description}</p>
+            <div className="product-data-warranty">
+              <div className="product-warranty-data">
+                <TbTruckDelivery className="warranty-icon" />
+                <p>Free Delivery</p>
               </div>
-              {/* <div className="product-data-info">
+              <div className="product-warranty-data">
+                <TbReplace className="warranty-icon" />
+                <p>30 Days Replacement</p>
+              </div>
+              <div className="product-warranty-data">
+                <TbTruckDelivery className="warranty-icon" />
+                <p>Mayur Delivery</p>
+              </div>
+              <div className="product-warranty-data">
+                <MdSecurity className="warranty-icon" />
+                <p>2 years warranty</p>
+              </div>
+            </div>
+            {/* <div className="product-data-info">
                 <p>
                   Available :
                   <span>{stock > 0 ? "In Stock" : "Not Available"} </span>
@@ -104,11 +103,10 @@ const SingleProduct = () => {
                   Brand :<span>{company}</span>
                 </p>
               </div> */}
-              <hr />
-              {/* <AddToCart product={singleProduct} /> */}
-            </div>
+            <hr />
+            <AddToCart product={singleProduct} />
           </div>
-        </section>
+        </div>
       </Wrapper>
     </>
   );
@@ -117,9 +115,7 @@ const SingleProduct = () => {
 export default SingleProduct;
 
 const Wrapper = styled.section`
-  .container {
-    padding: 9rem 0;
-  }
+  padding: 5rem;
 
   .product-data {
     display: flex;
@@ -183,9 +179,5 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  @media (max-width: ${({ theme }) => theme.media.mobile}) {
-    padding: 0 2.4rem;
   }
 `;

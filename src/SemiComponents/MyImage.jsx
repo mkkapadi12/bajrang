@@ -5,34 +5,30 @@ const MyImage = ({
   imgs = [{ url: "https://i.ibb.co/dJGZPpy/Product5.jpg" }],
 }) => {
   const [mainImg, setMainImg] = useState(imgs[0]);
-  console.log("url", imgs[0].url);
-  console.log("mainImg :", mainImg.url);
+  // console.log("url", imgs[0].url);
+  // console.log("mainImg :", mainImg.url);
   return (
-    <>
-      <Wrapper>
-        <div className="grid-four-column grid">
-          {imgs.map((CurElem, index) => {
-            return (
-              <>
-                <figure key={imgs.id}>
-                  <img
-                    src={CurElem.url}
-                    alt={CurElem.filename}
-                    className="box-image--style"
-                    key={index}
-                    onClick={() => setMainImg(CurElem)}
-                  />
-                </figure>
-              </>
-            );
-          })}
-        </div>
-        {/* 2ns column */}
-        <div className="main-screen">
-          <img src={mainImg.url} alt={mainImg.filename} />
-        </div>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <div className="grid-four-column grid">
+        {imgs.map((CurElem, index) => {
+          return (
+            <figure key={imgs.id}>
+              <img
+                src={CurElem.url}
+                alt={CurElem.filename}
+                className="box-image--style"
+                key={index}
+                onClick={() => setMainImg(CurElem)}
+              />
+            </figure>
+          );
+        })}
+      </div>
+      {/* 2ns column */}
+      <div className="main-screen">
+        <img src={mainImg.url} alt={mainImg.filename} />
+      </div>
+    </Wrapper>
   );
 };
 

@@ -10,9 +10,8 @@ import Button from "../Styles/Button";
 const AddToCart = ({ product }) => {
   // const { addToCart } = useCartContext();
 
-  const { id, colors, stock } = product;
-  //   console.log(colors);
-  const [color, setColor] = useState(colors[0]);
+  const { id, stock, colors } = product;
+  // const [color, setColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
 
   const setDecrese = () => {
@@ -29,22 +28,22 @@ const AddToCart = ({ product }) => {
         <div className="colors">
           <p>
             Colors :
-            {colors.map((CurColor) => {
-              return (
-                <button
+            {/* {colors.map((CurColor) => { */}
+              {/* return ( */}
+                {/* <button
                   key={id}
                   style={{ backgroundColor: CurColor }}
-                  className={
-                    color === CurColor ? "btnStyle active" : "btnStyle"
-                  }
-                  onClick={() => setColor(CurColor)}
+                  // className={
+                  //   color === CurColor ? "btnStyle active" : "btnStyle"
+                  // }
+                  // onClick={() => setColor(CurColor)}
                 >
-                  {color === CurColor ? (
+                  {/* {color === CurColor ? (
                     <FaCheck className="checkStyle" />
-                  ) : null}
-                </button>
-              );
-            })}
+                  ) : null} */}
+                {/* </button> */} 
+              {/* // ); */}
+            {/* // })} */}
           </p>
         </div>
 
@@ -67,6 +66,8 @@ const AddToCart = ({ product }) => {
   );
 };
 
+export default AddToCart;
+
 const Wrapper = styled.section`
   .colors p {
     display: flex;
@@ -74,6 +75,9 @@ const Wrapper = styled.section`
     align-items: center;
   }
   .btnStyle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 2rem;
     height: 2rem;
     background-color: #000;
@@ -119,5 +123,3 @@ const Wrapper = styled.section`
     }
   }
 `;
-
-export default AddToCart;

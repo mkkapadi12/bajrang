@@ -7,7 +7,7 @@ import ProductList from "../components/ProductList";
 const Shop = () => {
   return (
     <Wrapper className="container mx-auto">
-      <div className="grid gap-12 grid-filter-column">
+      <div className="grid-filter-column grid gap-12">
         <div className="filter-section">
           <Filter />
         </div>

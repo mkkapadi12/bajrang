@@ -1,10 +1,13 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../Reducer/ProductReducer";
+import apiData from "../API/Product.json";
 // import { SinglePro } from "../Data/SinglePro";
 
 const ProductContext = createContext();
-const API = "https://mocki.io/v1/9002e200-0d52-42a3-902a-2164d85fd476";
+// const API = "https://mocki.io/v1/9002e200-0d52-42a3-902a-2164d85fd476";
+const API = apiData;
+// console.log(API);
 
 const initialState = {
   isError: false,
@@ -21,8 +24,9 @@ const ProductProvider = ({ children }) => {
   const getProducts = async (url) => {
     dispatch({ type: "SET_LOADING" });
     try {
-      const res = await axios.get(url);
-      const products = await res.data;
+      // const res = await axios.get(url);
+      // const products = await res.data;
+      const products = url;
       // console.log(products);
       dispatch({ type: "SET_API_DATA", payload: products });
     } catch (error) {
@@ -35,6 +39,7 @@ const ProductProvider = ({ children }) => {
       // const res = await axios.get(url);
       // const singleProduct = await res.data;
       const singleProduct = url;
+
       dispatch({ type: "SET_SINGLE_API_DATA", payload: singleProduct });
     } catch (error) {
       dispatch({ type: "SET_SINGLE_ERROR" });

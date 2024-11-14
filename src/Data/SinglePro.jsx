@@ -2,7 +2,7 @@ export const SinglePro = {
   id: "productnoh",
   name: "Jaripatty",
   price: 90,
-  colors: ["#000000"],
+  colors: ["#000000", "#6cccc6"],
   image: [
     {
       id: "randomid1",
@@ -46,4 +46,5 @@ export const SinglePro = {
   category: "latkan",
   shipping: null,
   featured: true,
+  stock: 5,
 };
